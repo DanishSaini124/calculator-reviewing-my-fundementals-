@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <limits>
+#include <cmath>
 
 double add(double a, double b) {
 	return a + b;
@@ -22,6 +23,18 @@ double divide(double a, double b) {
 	}
 }
 
+double modulus(double a, double b) {
+	if (b == 0)
+		cout << "You cannot divide by 0 " << endl;
+	else {
+		return fmod(a, b);
+	}
+}
+
+double power(double a, double b) {
+	return pow(a, b);
+}
+
 int main() {
 	
 	while (true) {
@@ -29,7 +42,7 @@ int main() {
 		char choice;
 		char op;
 		double num1, num2, result;
-		cout << "welcome to my calculator, plese select an operation + - * / " << endl;
+		cout << "welcome to my calculator, plese select an operation + - * / % ^ " << endl;
 		cin >> op;
 		cout << "Now enter the 2 numbers one by one: ";
 		cin >> num1 >> num2;
@@ -50,6 +63,14 @@ int main() {
 			break;
 		case '/':
 			result = divide(num1, num2);
+			cout << "Result: " << result << endl;
+			break;
+		case '%':
+			result = modulus(num1, num2);
+			cout << "Result: " << result << endl;
+			break;
+		case '^':
+			result = power(num1, num2);
 			cout << "Result: " << result << endl;
 			break;
 		default:
