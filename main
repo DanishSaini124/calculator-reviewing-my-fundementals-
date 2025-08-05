@@ -2,50 +2,64 @@
 using namespace std;
 #include <limits>
 
+double add(double a, double b) {
+	return a + b;
+}
+
+double subtract(double a, double b) {
+	return a - b;
+}
+
+double multiply(double a, double b) {
+	return a * b;
+}
+
+double divide(double a, double b) {
+	if (b == 0)
+		cout << "you cannot divide by 0" << endl;
+	else {
+		return a / b;
+	}
+}
+
 int main() {
-
-
-	double num1, num2;
-	char op;
-	char choice;
-
+	
 	while (true) {
 
-		cout << "Enter the operator (+ - * /) : ";
+		char choice;
+		char op;
+		double num1, num2, result;
+		cout << "welcome to my calculator, plese select an operation + - * / " << endl;
 		cin >> op;
-
-		cout << "Enter the two numbers one by one : ";
+		cout << "Now enter the 2 numbers one by one: ";
 		cin >> num1 >> num2;
 
 		switch (op)
 		{
-		case '+':
-			cout << num1 << op << num2 << " = " << num1 + num2 << endl;
+		case'+':
+			result = add(num1, num2);
+			cout << "Result: " << result << endl;
 			break;
 		case '-':
-			cout << num1 << op << num2 << " = " << num1 - num2 << " = " << endl;
+			result = subtract(num1, num2);
+			cout << "Result: " << result << endl;
 			break;
 		case '*':
-			cout << num1 << op << num2 << " = " << num1 * num2 << " = " << endl;
+			result = multiply(num1, num2);
+			cout << "Result: " << result << endl;
 			break;
 		case '/':
-			if (num2 == 0.0) {
-				cout << "You cannot divide 0" << " = " << endl;
-			}
-			else
-			{
-				cout << num1 << op << num2 << " = " << num1 / num2 << " = " << endl;
-			}
+			result = divide(num1, num2);
+			cout << "Result: " << result << endl;
 			break;
-
 		default:
-			cout << "Invalid opeation" << endl;
+			cout << "Invalid operator" << endl;
 		}
-	  cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	  cout << "Do you want to continue?: Y or N" << endl;
-	  cin >> choice;
-	  if (choice == 'n' || choice == 'N') {
-		  break;
-	  }
-	}
+		cout << "Would you like to continue: Y or N" << endl;
+		cin >> choice;
+		if (choice == 'n' || choice == 'N') {
+			cout << "Goodbye" << endl;
+			break;
+		}
+	} 
 }
